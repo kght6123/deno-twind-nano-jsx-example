@@ -1,6 +1,6 @@
 {
   "name": "deno-twind-nano-jsx-example",
   "scripts": {
-    "start": "deno run --no-check --allow-net --allow-read --unstable --config deno.tsconfig.json server.tsx"
+    "start": "deno run --no-check --allow-net --allow-read --unstable --config tsconfig.json server.tsx"
   }
 }
