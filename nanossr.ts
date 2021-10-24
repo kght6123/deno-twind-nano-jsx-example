@@ -44,6 +44,7 @@ const html = ({
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     ${head}
     ${styleTag}
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@1.16.0/dist/full.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     ${body}

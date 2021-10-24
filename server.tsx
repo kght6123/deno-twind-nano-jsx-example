@@ -12,12 +12,31 @@ import { HelloNano } from "./components/HelloNano.tsx";
 const comments = ["server side comment one"];
 
 const Hello = (props: { name: string }) => (
-  <div class={tw`bg-blue-100 flex`}>
-    <h1 class={tw`text-8xl text-blue-500 m-auto mt-20`}>Hi {props.name}!</h1>
-    <HelloNano />
-    <Comments comments={comments} />
-    <div id="comments"></div>
-    <script type="module" src="/bundle.js"></script>
+  <div>
+    <div class={tw`bg-blue-100 flex`}>
+      <h1 class={tw`text-8xl text-blue-500 m-auto mt-20`}>Hi {props.name}!</h1>
+      <HelloNano />
+      <Comments comments={comments} />
+      <div id="comments"></div>
+      <script type="module" src="/bundle.js"></script>
+    </div>
+    <div class={[tw`min-h-screen`, `hero bg-base-200`].join(" ")}>
+      <div class={[tw`flex-col lg:flex-row-reverse`, `hero-content`].join(" ")}>
+        <img
+          src="https://picsum.photos/id/1005/600/600"
+          class={tw`max-w-sm rounded-lg shadow-2xl`}
+        />
+        <div>
+          <h1 class={tw`mb-5 text-5xl font-bold`}>Hello there</h1>
+          <p class={tw`mb-5`}>
+            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
+            a id nisi.
+          </p>
+          <button class="btn btn-primary">Get Started</button>
+        </div>
+      </div>
+    </div>
   </div>
 );
 
