@@ -13,7 +13,7 @@ const comments = ["server side comment one"];
 
 const Hello = (props: { name: string }) => (
   <div>
-    <div class={tw`bg-blue-100 flex`}>
+    <div class={tw`bg-blue-100 flex text-blue-800`}>
       <h1 class={tw`text-8xl text-blue-500 m-auto mt-20`}>Hi {props.name}!</h1>
       <HelloNano />
       <Comments comments={comments} />
@@ -49,14 +49,22 @@ const { files } = await Deno.emit("./client.tsx", {
   },
 });
 
+// TODO: これを見て、書き直せるところは書き直す https://github.com/denoland/deno_std/blob/main/http/server.ts
+
 console.log(`Listening on: http://localhost:8080`);
-await listenAndServe(":8080", (req: Request) => {
+await listenAndServe(":8080", async (req: Request) => {
   const url = new URL(req.url);
   console.log("Hi request to", url.href);
   if (url.href === "http://localhost:8080/bundle.js") {
     const body = files["deno:///bundle.js"];
     return new Response(body, {
       headers: { "content-type": "text/javascript" },
+    });
+  } else if (url.href === "http://localhost:8080/tailwind.css") {
+    // TODO: 未検証
+    const body = await Deno.readTextFile("./tailwind.dist.css");
+    return new Response(body, {
+      headers: { "content-type": "text/css" },
     });
   }
   console.log("1");
