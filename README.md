@@ -16,6 +16,13 @@ Code: https​://deno.land/x/nano_jsx/mod.ts
 
 Implicitly using latest version (v0.0.20) for https://deno.land/x/nano_jsx/mod.tsdeno(deno-warn)
 
+## Tailwind CSS CLI
+
+```sh
+npx tailwindcss@next init
+npm install -D daisyui
+```
+
 ## 参考文献
 
 https://crux.land/nanossr@0.0.1

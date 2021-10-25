@@ -1,6 +1,14 @@
 {
   "name": "deno-twind-nano-jsx-example",
   "scripts": {
-    "start": "deno run --no-check --allow-net --allow-read --unstable --config tsconfig.json server.tsx"
+    "deno": "npm run build && npm run start",
+    "start": "deno run --no-check --allow-net --allow-read --unstable --config tsconfig.json server.tsx",
+    "dev": "npx tailwindcss@next -i ./tailwind.src.css -o ./tailwind.dist.css -w",
+    "build": "npx tailwindcss@next -i ./tailwind.src.css -o ./tailwind.dist.css",
+    "build:prod": "NODE_ENV=production npx tailwindcss@next -i ./tailwind.src.css -o ./tailwind.dist.css --minify",
+    "clean": "npx clear-npx-cache"
+  },
+  "devDependencies": {
+    "daisyui": "^1.16.0"
   }
 }
