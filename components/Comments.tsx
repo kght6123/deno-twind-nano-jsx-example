@@ -3,7 +3,7 @@ import { h } from "https://deno.land/x/nano_jsx@v0.0.16/core.ts";
 const Comments = (props: { comments: string[] }) => {
   return (
     <ul>
-      {props.comments.map((comment: any) => {
+      {props.comments.map((comment: string) => {
         return <li>{comment}</li>;
       })}
     </ul>

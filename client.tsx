@@ -1,14 +1,17 @@
-import 'https://deno.land/x/nano_jsx@v0.0.16/types.ts'
-import { h, hydrate } from 'https://deno.land/x/nano_jsx@v0.0.16/core.ts'
+import "https://deno.land/x/nano_jsx@v0.0.16/types.ts";
+import { h, hydrate } from "https://deno.land/x/nano_jsx@v0.0.16/core.ts";
 
-import Comments from './components/Comments.tsx'
+import Comments from "./components/Comments.tsx";
 
-const comments = ['client side comment one', 'client side comment two']
+const comments = ["client side comment one", "client side comment two"];
 
 const start = () => {
-  hydrate(<Comments comments={comments} />, document.getElementById('comments'))
-}
+  hydrate(
+    <Comments comments={comments} />,
+    document.getElementById("comments")
+  );
+};
 
-window.addEventListener('load', event => {
-  start()
-})
+window.addEventListener("load", (event) => {
+  start();
+});

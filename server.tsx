@@ -53,16 +53,18 @@ const { files } = await Deno.emit("./client.tsx", {
 const addr = ":8080";
 const handler = async (request: Request) => {
   // Nuxt.js ライクな Router 仕様の案
-  // AAA.tsx -> SSR
-  // AAA.ssr.tsx -> SSR
-  // BBB.csr.tsx -> CSR
-  // CCC.isr.tsx -> ISR
-  // DDD.ssg.tsx -> SSG
-  // aaa/bbb/ccc.tsx -> /aaa/bbb/ccc
-  // aaa/bbb/ccc.ssr.tsx -> /aaa/bbb/ccc
-  // aaa-bbb-ccc.tsx -> /aaa/bbb/ccc
-  // aaa_bbb_ccc.tsx -> /aaa/bbb/ccc
-  // aaa_{hoge}_ccc.tsx -> /aaa/{hoge}/ccc
+  // /pages/AAA.tsx -> SSR
+  // /pages/AAA.ssr.tsx -> SSR
+  // /pages/BBB.csr.tsx -> CSR
+  // /pages/CCC.isr.tsx -> ISR
+  // /pages/DDD.ssg.tsx -> SSG
+  // /pages/aaa/bbb/ccc.tsx -> /aaa/bbb/ccc
+  // /pages/aaa/bbb/ccc.ssr.tsx -> /aaa/bbb/ccc
+  // /pages/aaa-bbb-ccc.tsx -> /aaa/bbb/ccc
+  // /pages/aaa_bbb_ccc.tsx -> /aaa/bbb/ccc
+  // /pages/aaa_{hoge}_ccc.tsx -> /aaa/{hoge}/ccc
+  // Nuxt.js ライクな Components の自動インポートの案
+  // /components/atoms/Comments.tsx -> <atoms-comments />
   const url = new URL(request.url);
   console.log("Hi request to", url.href);
   if (url.href === "http://localhost:8080/bundle.js") {
@@ -71,7 +73,7 @@ const handler = async (request: Request) => {
       headers: { "content-type": "text/javascript" },
     });
   } else if (url.href === "http://localhost:8080/tailwind.css") {
-    const body = await Deno.readTextFile("./tailwind.dist.css");
+    const body = await Deno.readTextFile("./dist/tailwind.css");
     return new Response(body, {
       headers: { "content-type": "text/css" },
     });

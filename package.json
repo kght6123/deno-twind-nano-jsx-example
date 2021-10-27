@@ -3,9 +3,9 @@
   "scripts": {
     "deno": "npm run build && npm run start",
     "start": "deno run --no-check --allow-net --allow-read --unstable --config tsconfig.json server.tsx",
-    "dev": "npx tailwindcss@next -i ./tailwind.src.css -o ./tailwind.dist.css -w",
-    "build": "npx tailwindcss@next -i ./tailwind.src.css -o ./tailwind.dist.css",
-    "build:prod": "NODE_ENV=production npx tailwindcss@next -i ./tailwind.src.css -o ./tailwind.dist.css --minify",
+    "dev": "npx tailwindcss@next -i ./assets/css/tailwind.css -o ./dist/tailwind.css -w",
+    "build": "npx tailwindcss@next -i ./assets/css/tailwind.css -o ./dist/tailwind.css",
+    "build:prod": "NODE_ENV=production npx tailwindcss@next -i ./assets/css/tailwind.css -o ./dist/tailwind.css --minify",
     "clean": "npx clear-npx-cache"
   },
   "devDependencies": {
