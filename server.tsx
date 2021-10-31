@@ -6,6 +6,7 @@ import { h, ssr } from "./nanossr.ts";
 
 // components
 import Comments from "./components/Comments.tsx";
+import CommentsClass from "./components/CommentsClass.tsx";
 import { HelloNano } from "./components/HelloNano.tsx";
 
 const comments = ["server side comment one"];
@@ -36,6 +37,7 @@ const App = (props: { name: string }) => (
         </div>
       </div>
     </div>
+    <CommentsClass comments={comments} />
   </div>
 );
 
@@ -65,6 +67,7 @@ const handler = async (request: Request) => {
   // /pages/aaa_{hoge}_ccc.tsx -> /aaa/{hoge}/ccc
   // Nuxt.js ライクな Components の自動インポートの案
   // /components/atoms/Comments.tsx -> <atoms-comments />
+  // Component や Page 毎に Store を設定できる
   const url = new URL(request.url);
   console.log("Hi request to", url.href);
   if (url.href === "http://localhost:8080/bundle.js") {
